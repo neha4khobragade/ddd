@@ -1,0 +1,27 @@
+1. Remove the Existing Remote
+The first scenario we'll cover is the one in which there's already a remote called origin, but it's the wrong remote for some reason. Let's say, for the sake of the example, that you used to use GitLab for storing your repositories online and then decided to switch over to GitHub (or vice versa). To go about that, you could follow the steps below: 
+
+Create a new repository online using GitHub or GitLab.
+
+Go to your local repository and remove the existing origin remote.
+
+Add the new online repository as the correct origin remote.
+
+Push your code to the new origin.
+
+If, for some reason, you skip step #2, that will cause Git to display the "remote origin already exists" message. So a possible solution here would be simply removing the existing remote: 
+
+git remote remove origin
+
+As explained before, origin is just a name for a remote. It could be a different name for you. To make sure the remote is indeed deleted, you can use the Git remote command you saw earlier. Then, if everything is all right, you can go on to adding the desired remote. 
+
+2. Update the Existing Remote's URL
+We've just shown you how to remove an existing remote, so you can hopefully add a new one, this time with the correct URL. However, you might be thinking that removing the remote and adding it again with a different link will have an eerily similar result as updating the URL of the existing remote. If that's the case, you're right, of course. 
+
+So let's see how to achieve the same result we got in the previous section but in a faster way. You just have to use a single command: 
+
+git remote set-url <REMOTE-NAME> <NEW-URL>
+
+As we've said before, we keep talking about origin throughout this post, but there's nothing preventing you from working with whatever remote names you feel like. So a complete example with origin as the remote name and a URL to a real repo could look like this: 
+
+git remote set-url origin https://github.com/git/git.git
